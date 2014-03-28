@@ -1,0 +1,42 @@
+﻿@model Gauge_Recorder.Models.GaugeModel
+<h2>Add Gauge</h2>
+
+@if (!string.IsNullOrWhiteSpace(ViewBag.Comment))
+{
+    <h3>@ViewBag.Comment</h3>
+}
+
+<ul data-role="listview" data-inset="true">
+    <li data-role="list-divider">Information Details</li>
+
+    @using (Html.BeginForm("AddGauge", "Home", FormMethod.Get))
+    {
+        <li data-role="fieldcontain">
+            @Html.LabelFor(m => m.GaugeName)
+            @Html.TextBoxFor(m => m.GaugeName)
+        </li>
+        <li data-role="fieldcontain">
+            @Html.LabelFor(m => m.MinValue)
+            @Html.TextBoxFor(m => m.MinValue)
+        </li>
+        <li data-role="fieldcontain">
+            @Html.LabelFor(m => m.MaxValue)
+            @Html.TextBoxFor(m => m.MaxValue)
+        </li>
+        <li data-role="fieldcontain">
+            @Html.LabelFor(m => m.Unit)
+            @Html.TextBoxFor(m => m.Unit)
+        </li>
+        <li data-role="fieldcontain">
+            <input type="submit" value="Add" />
+        </li>
+    }
+
+    <li data-role="fieldcontain">
+        @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+        {
+            <input type="submit" value="Go Back" />
+        }
+    </li>
+
+</ul>

@@ -1,0 +1,35 @@
+﻿@model Gauge_Recorder.Models.InputModel
+
+<h2>@Model.GaugeType</h2>
+
+<ul data-role="listview" data-inset="true">
+    <li data-role="list-divider">Information Details</li>
+
+    @using (Html.BeginForm("Gauge", "Home", FormMethod.Get))
+    {
+        <li data-role="fieldcontain">
+            @Html.LabelFor(m => m.StandardGauge)
+            @Html.TextBoxFor(m => m.StandardGauge, new { disabled = "disabled" })
+        </li>
+        <li data-role="fieldcontain">
+            @Html.LabelFor(m => m.InputGauge)
+            @Html.TextBoxFor(m => m.InputGauge)
+        </li>
+        <li data-role="fieldcontain">
+            @Html.LabelFor(m => m.Comment)
+            @Html.TextBoxFor(m => m.Comment)
+
+            @Html.HiddenFor(m => m.GaugeType)
+            @Html.HiddenFor(m => m.Operator)
+            @Html.HiddenFor(m => m.RelatedGauge)
+        </li>
+        <li data-role="fieldcontain">
+            <input type="submit" value="Add" />
+        </li>
+    }
+
+    <li data-role="fieldcontain">
+        @Html.ActionLink("Go Back", "Index", "Home")
+    </li>
+
+</ul>

@@ -1,0 +1,78 @@
+﻿@model Gauge_Recorder.Models.HomeModels
+@{
+    ViewBag.Title = "Data Storage";
+}
+
+<h2>Data Storage</h2>
+
+<ul data-role="listview" data-inset="true">
+    <li data-role="list-divider">List of Records</li>
+
+    <li data-role="fieldcontain">
+        <table style="width: 100%;">
+
+            @if (Model.InputList != null)
+            {
+                if (Model.InputList.Count > 0)
+                {
+                <tr>
+                    <th style="text-align: center;">Gauge Type</th>
+                    <th style="text-align: center;">Standard Gauge</th>
+                    <th style="text-align: center;">Input Gauge</th>
+                    <th style="text-align: center;">Comment</th>
+                    <th style="text-align: center;">Operator</th>
+                </tr>
+                
+                    foreach (var item in Model.InputList)
+                    {
+                    <tr>
+                        <td style="text-align: center;">@item.GaugeType</td>
+                        <td style="text-align: center;">@item.StandardGauge</td>
+                        <td style="text-align: center;">@item.InputGauge</td>
+                        <td style="text-align: center;">@item.Comment</td>
+                        <td style="text-align: center;">@item.Operator</td>
+                    </tr>
+                    }
+                }
+                else
+                {
+                <tr>
+                    <td>
+                        <h2>No data.</h2>
+                    </td>
+                </tr>
+                }
+            }
+        </table>
+    </li>
+
+    <li data-role="fieldcontain">
+        @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+        {
+            <input type="submit" value="Go Back" />
+        }
+    </li>
+
+    <li data-role="fieldcontain">
+        @using (Html.BeginForm("ExportCSV", "Home", FormMethod.Post))
+        {
+            <input type="submit" value="Export to CSV File" />
+        }
+    </li>
+
+    <li data-role="fieldcontain">
+          @using (Html.BeginForm("ExportClientsListToCSV", "Home", FormMethod.Post))
+          {
+              <input type="submit" value="Export">
+          }
+    </li>
+
+     <li data-role="fieldcontain">
+          <a href="@Url.Action("DownloadCSV", "Home")">Download CSV</a>
+    </li>
+</ul>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

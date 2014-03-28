@@ -1,0 +1,62 @@
+﻿@model Gauge_Recorder.Models.HomeModels
+
+@{
+    ViewBag.Title = "Gauge Recorder";
+}
+
+<h2>@ViewBag.Message</h2>
+
+<p>
+</p>
+
+<ul data-role="listview" data-inset="true">
+    <li data-role="list-divider" style="list-style: none;">List of Gauges</li>
+
+    @if (Model.Gauge != null)
+    {
+        if (Model.Gauge.Count > 0)
+        {
+            foreach (var item in Model.Gauge)
+            {
+        <li>
+            @using (Html.BeginForm("Gauge", "Home", new { GaugeId = @item.GaugeId, GaugeName = item.GaugeName }))
+            {
+                <input type="submit" value="@item.GaugeName" />
+            }
+        </li>
+            }
+        }
+        else
+        {
+        <li>
+            <h2>No Gauges Yet. </h2>
+        </li>
+        }
+    }
+
+    <li data-role="list-divider" style="list-style: none;">Inventories</li>
+
+    <li>
+        @using (Html.BeginForm("DataStorage", "Home", FormMethod.Post))
+        {
+            <input type="submit" value="Data Storage" />
+        }
+    </li>
+
+    <li data-role="list-divider" style="list-style: none;">Settings</li>
+
+    <li>
+        @using (Html.BeginForm("AddGauge", "Home", FormMethod.Post))
+        {
+            <input type="submit" value="Add Gauge" />
+        }
+    </li>
+
+    <li>
+        @using (Html.BeginForm("EditGauge", "Home", FormMethod.Post))
+        {
+            <input type="submit" value="Edit Gauge" />
+        }
+    </li>
+
+</ul>

@@ -1,0 +1,79 @@
+﻿@model List<Gauge_Recorder.Models.GaugeModel>
+
+@{
+    ViewBag.Title = "Edit Gauge";
+}
+
+@{
+    <ul data-role="listview" data-inset="true">
+        <li data-role="list-divider">Information Details</li>
+
+        <li data-role="fieldcontain">
+            @using (Html.BeginForm("SaveGauge", "Home", Model, FormMethod.Post))
+            {
+
+                <table style="width: 100%;">
+
+                    @if (Model != null)
+                    {
+                        if (Model.Count > 0)
+                        {
+                        <tr>
+                            <th></th>
+                            <th>Gauge Name</th>
+                            <th>Minimum Value</th>
+                            <th>Maximum Value</th>
+                            <th>Unit</th>
+                            <th></th>
+                        </tr>
+                    
+                            for (int ctr = 0; ctr < Model.Count; ctr++)
+                            {
+                            
+                        <tr>
+                            <td style="text-align: center;">
+                                @Html.ActionLink("Delete", "DeleteGauge", new { id = Model[ctr].GaugeId })
+                            </td>
+                            <td style="text-align: center;">
+                                @Html.TextBoxFor(m => m[ctr].GaugeName)
+                            </td>
+                            <td style="text-align: center;">
+                                @Html.TextBoxFor(m => m[ctr].MinValue)
+                            </td>
+                            <td style="text-align: center;">
+                                @Html.TextBoxFor(m => m[ctr].MaxValue)
+                            </td>
+                            <td style="text-align: center;">
+                                @Html.TextBoxFor(m => m[ctr].Unit)
+                            </td>
+                            @Html.HiddenFor(m => m[ctr].GaugeId)
+                        </tr> 
+                            }
+                        <tr>
+                            <td style="text-align: center;" colspan="6">
+                                <button type="submit" id="btnSave" name="Command" value="Save">Save</button>
+                            </td>
+                        </tr>
+                        }
+                        else
+                        {
+                        <tr>
+                            <td>
+                                <h2>No data.</h2>
+                            </td>
+                        </tr>
+                        }
+                    }
+                </table>
+            }
+        </li>
+
+        <li data-role="fieldcontain">
+            @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+            {
+                <input type="submit" value="Go Back" />
+            }
+        </li>
+
+    </ul>
+}
