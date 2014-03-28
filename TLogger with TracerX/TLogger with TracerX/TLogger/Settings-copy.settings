@@ -1,0 +1,36 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SimpleClient" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ServerIP" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">localhost</Value>
+    </Setting>
+    <Setting Name="COM_Name" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Takebishi.Dxp</Value>
+    </Setting>
+    <Setting Name="TriggerAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">WN10003</Value>
+    </Setting>
+    <Setting Name="TargetNumber" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="TergetQuantity" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">2000</Value>
+    </Setting>
+    <Setting Name="TriggerOffset" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="DeviceName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">DEV1</Value>
+    </Setting>
+    <Setting Name="ResponseAddress" Type="System.String" Scope="User">
+      <Value Profile="(Default)">WN10003</Value>
+    </Setting>
+    <Setting Name="TargetPrefix" Type="System.String" Scope="User">
+      <Value Profile="(Default)">WN</Value>
+    </Setting>
+    <Setting Name="LoopTime" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
